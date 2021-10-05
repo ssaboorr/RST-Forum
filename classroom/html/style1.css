@@ -1,0 +1,74 @@
+/* header {
+  background: url(./assets/images/car.jpg) no-repeat center;
+  background-size: cover; */
+/* border: 10px solid red; */
+/* border-width: 20px;
+  border-style: dashed;
+  border-color: green; */
+/* border-bottom: 10px solid purple; */
+/* border: 10px outset yellow; */
+/* border: 15px solid rgba(143, 17, 17); */
+/* border-width: 10px 5px 20px 2px; */
+/* border-width: 10px 5px; */
+/* border-width: 10px 0 20px; */
+/* border-width: thin thick thin; */
+/* border-style: ridge groove dotted dashed; */
+/* } */
+
+/* h1 {
+  color: rgba(255, 255, 255, 0.1);
+  font-size: 100px;
+  text-align: center;
+} */
+/* 
+body {
+  background-color: hsla(0, 50%, 80%, 0.6);
+} */
+
+.bg {
+  height: 300px;
+  width: 100%;
+  /* background: red url(./assets/images/car.jpg) no-repeat center left;
+  background-size: cover;
+  background-color: red;
+  background-image: url(./assets/images/car-r.jpg);
+  background-repeat: no-repeat;
+  background-position: center center; */
+  /* filter: saturate(10); */
+
+  /* background-attachment: scroll; */
+
+  /* background: red url(./assets/favicon-32x32.png) no-repeat top left; */
+  background-image: url(https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Ashoka_Chakra.svg/1200px-Ashoka_Chakra.svg.png),
+    linear-gradient(to bottom, orange, white, green);
+  background-repeat: no-repeat, no-repeat;
+  background-size: 120px, auto;
+  background-position: center center, center;
+}
+
+.another {
+  height: 300px;
+  width: 100%;
+  background: linear-gradient(
+      to bottom right,
+      rgba(0, 0, 0, 0),
+      rgba(180, 21, 21, 0.2)
+    ),
+    url(./assets/images/car.jpg);
+  /* background-image: linear-gradient(to bottom, red, yellow); */
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* -webkit-background-clip: text; */
+  background-attachment: fixed;
+  border-radius: 10px 100px 50px 30px;
+}
+
+.another h1 {
+  /* color: transparent; */
+  color: white;
+  font-size: 130px;
+  font-weight: bold;
+}

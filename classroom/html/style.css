@@ -1,0 +1,124 @@
+/* body {
+  background: yellow;
+}
+
+.purple-text {
+  color: purple;
+  font-weight: bold;
+}
+
+.underline-text {
+  text-decoration: underline;
+  font-size: 30px;
+} */
+
+/* * {
+  border: 4px solid black;
+} */
+
+/* .purple-text {
+  border: 2px solid black;
+} */
+
+/* .purple-text.underline-text {
+  border: 2px solid red;
+} */
+
+/* #usernameText {
+  border: 2px solid green;
+}
+
+section {
+  border: 4px solid orange;
+} */
+
+/* main {
+  border: 2px solid purple;
+}
+
+aside {
+  border: 2px solid green;
+} */
+/* 
+h2.test-class {
+  border: 4px solid black;
+} */
+
+/* h1,
+h2.test-class,
+h3,
+.purple-text,
+.underline-text {
+  border: 3px solid green;
+} */
+
+/* ul li {
+  border: 2px solid orange;
+} */
+
+/* div p {
+  border: 4px solid orange;
+} */
+
+/* div > p {
+  border: 4px solid orange;
+} */
+/* 
+ul ~ p {
+  border: 10px solid red;
+} */
+
+/* [class] {
+  border: 5px solid green;
+} */
+
+/* [class='hello'] {
+  border: 5px solid gold;
+}
+
+[href="https://google.com"]
+{
+  border: 5px solid orange;
+} */
+/* 
+p {
+  border: 2px solid red;
+} */
+
+/* .hello {
+  border: 2px solid red;
+}
+
+.product-title {
+  border: 1px solid black;
+}
+
+#product-description {
+  border: 1px solid black;
+} */
+
+/* [href~='com'] {
+  border: 5px solid red;
+} */
+
+/* [lang|='en'] {
+  border: 5px solid red;
+} */
+
+/* [class|='product'] {
+  border: 5px solid green;
+} */
+/* 
+[class*='desc'] {
+  border: 5px solid green;
+} */
+
+.test1 {
+  border: 10px solid red;
+}
+
+.test1 p,
+.test1 ul,
+.test1 li {
+  border: 4px solid green;
+}
