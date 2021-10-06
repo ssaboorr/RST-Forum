@@ -1,0 +1,96 @@
+* {
+    font-size: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+header {
+    background-color: gray;
+    border: 1px solid black;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    padding: 1rem 1.2rem;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 1rem;
+    color: white;
+}
+
+.container {
+    margin-top: 5rem;
+    padding: 1rem;
+    height: 40rem;
+    width: 100%;
+    text-align: center;
+    box-sizing: content-box;
+    background-image: url(../assets/images/hero.png);
+    background-repeat: no-repeat;
+    background-size: 5rem cover;
+    background-position: center center;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+hr {
+    margin: 0.5rem;
+    border: 1px solid black;
+    box-shadow: 0 0 2px 0
+}
+
+
+/* ------------------------------------------------------------ */
+
+.product-brand {
+    width: 20rem;
+    min-height: 20rem;
+    background-color: red;
+    border: 2px solid yellow;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.brand {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    gap: 2rem;
+}
+
+h2 {
+    margin: 1rem;
+    font-size: 2rem;
+}
+
+.product-brand img {
+    position: absolute;
+    height: 100%
+}
