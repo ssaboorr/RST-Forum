@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 * {
     font-size: 100%;
     font-family: 'Noto Sans JP', sans-serif;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -18,7 +20,8 @@ header {
 }
 
 header h1 {
-    font-size: 1.5rem;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
     font-weight: bold;
     color: white;
     margin-bottom: 1rem;
@@ -28,10 +31,11 @@ nav a {
     text-decoration: none;
     margin: 1rem;
     color: white;
+    font-size: 1.5rem;
 }
 
 .container {
-    margin-top: 5rem;
+    margin-top: 7rem;
     padding: 1rem;
     height: 40rem;
     width: 100%;
@@ -61,6 +65,17 @@ hr {
 
 /* ------------------------------------------------------------ */
 
+.brand {
+    padding: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: center;
+    gap: 2rem;
+}
+
 .product-brand {
     width: 20rem;
     min-height: 20rem;
@@ -74,17 +89,6 @@ hr {
     position: relative;
 }
 
-.brand {
-    padding: 2rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: center;
-    gap: 2rem;
-}
-
 h2 {
     margin: 1rem;
     font-size: 2rem;
@@ -93,4 +97,179 @@ h2 {
 .product-brand img {
     position: absolute;
     height: 100%
+}
+
+
+/* ------------------------------------------------- */
+
+
+/* .banner1 {
+    height: 40rem;
+    width: auto;
+    background-image: url(../assets/images/banner1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30rem cover;
+} */
+
+.banner1,
+.banner2,
+.banner3,
+.banner4 {
+    display: flex;
+    justify-content: center;
+}
+
+.banner1 img,
+.banner2 img,
+.banner3 img,
+.banner4 img {
+    margin: 2rem;
+    width: 70rem;
+    object-fit: cover;
+}
+
+
+/* ------------------------------------------------------- */
+
+.feat-prods {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    background-color: gray;
+}
+
+.feat-prods article {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: white;
+    /* border: 1px solid black; */
+    max-width: 20rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+article div {
+    padding: 0.8rem 1rem;
+}
+
+article img {
+    height: 20rem;
+    width: auto;
+    object-fit: cover;
+}
+
+article a {
+    display: block;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+article h4 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+article p {
+    text-align: center;
+}
+
+
+/* -------------------------------------------------------- */
+
+.deals-prods {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+    background-color: white;
+}
+
+.deals-prods article {
+    margin: 2rem;
+    padding: 2rem;
+    background-color: gray;
+    /* border: 1px solid black; */
+    max-width: 20rem;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.deals-prods article div {
+    padding: 0.8rem 1rem;
+}
+
+.deals-prods article img {
+    height: 20rem;
+    width: auto;
+    object-fit: cover;
+}
+
+.deals-prods article a {
+    display: block;
+    background-color: white;
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.deals-prods article h4 {
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.deals-prods article p {
+    text-align: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+
+/* ----------------------------------------- */
+
+footer {
+    height: 10rem;
+    background-color: gray;
+    border: 1px solid black;
+    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+footer nav a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    margin: 1.5rem;
+    text-transform: capitalize;
+}
+
+strike {
+    color: red;
 }
