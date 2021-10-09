@@ -273,3 +273,132 @@ footer nav a {
 strike {
     color: red;
 }
+
+
+/* ----------------- Products page ---------------------------- */
+
+.prod-box {
+    min-height: 150px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+}
+
+.prod-container {
+    margin-top: 6rem;
+    display: grid;
+    grid-template-areas: 'sidebar header header header ' 'sidebar body body body ' 'sidebar body2 body2 body2 ''sidebar footer footer footer';
+    gap: 1rem;
+}
+
+.prod-box h2 {
+    display: block;
+}
+
+.box1 img {
+    margin-bottom: 1rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.box1 {
+    grid-area: header;
+    width: 70rem;
+    margin-left: 10rem;
+}
+
+.box2 {
+    grid-area: body;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.box3 {
+    grid-area: sidebar;
+    height: 100vh;
+    width: 25rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.box3 nav a {
+    display: block;
+    border: 1px solid black;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    width: 20rem;
+    color: black;
+}
+
+.box4 {
+    grid-area: body2;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.box4 img {
+    display: block;
+    object-fit: cover;
+}
+
+.box5 {
+    grid-area: footer;
+    width: 100%;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.shelf {
+    padding: 2rem;
+    margin: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1rem;
+    align-items: center;
+}
+
+.shelf article div {
+    padding: 0.8rem 1rem;
+}
+
+.shelf article img {
+    height: 16rem;
+    width: auto;
+    object-fit: cover;
+}
+
+.shelf article a {
+    display: block;
+    background-color: gray;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    margin: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.shelf article h4 {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.shelf article p {
+    font-size: 1rem;
+    text-align: center;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.ow {
+    background-color: lightgray;
+    border-radius: 7px;
+}
