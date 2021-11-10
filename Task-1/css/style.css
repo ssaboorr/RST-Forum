@@ -79,8 +79,6 @@ hr {
 .product-brand {
     width: 20rem;
     min-height: 20rem;
-    background-color: red;
-    border: 2px solid yellow;
     font-size: 2rem;
     font-weight: bold;
     display: flex;
