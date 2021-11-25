@@ -72,24 +72,24 @@
 // console.log(val)
 
 
-function createArr(arrLength) {
+// function createArr(arrLength) {
 
-    const arr = []
-    if (arrLength < 101) {
-        for (let i = 0; i < arrLength; i++) {
-            let elements = Math.floor(Math.random() * 100) + 1;
-            arr.push(elements);
-        }
-        return console.log(arr);
-
-
-    } else {
-        return 'Please Enter Number less then or equal to 100'
-    }
+//     const arr = []
+//     if (arrLength < 101) {
+//         for (let i = 0; i < arrLength; i++) {
+//             let elements = Math.floor(Math.random() * 100) + 1;
+//             arr.push(elements);
+//         }
+//         return console.log(arr);
 
 
+//     } else {
+//         return 'Please Enter Number less then or equal to 100'
+//     }
 
-}
+
+
+// }
 
 
 // createArr(5);
@@ -123,34 +123,68 @@ function createArr(arrLength) {
 
 // Print Tripple array
 
-const matrix = [
-    [
+// const matrix = [
+//     [
 
-        [65, 88, 30, 92, 53],
-        [50, 23, 77, 17, 14],
-        [84, 19, 61, 45, 69],
-        [63, 91, 10, 45, 15],
-        [88, 87, 96, 97, 93],
+//         [65, 88, 30, 92, 53],
+//         [50, 23, 77, 17, 14],
+//         [84, 19, 61, 45, 69],
+//         [63, 91, 10, 45, 15],
+//         [88, 87, 96, 97, 93],
 
-    ],
-    [
-        [51, 99, 72, 65, 80],
-        [4, 47, 67, 46, 39],
-        [32, 58, 31, 98, 52],
-        [12, 27, 25, 13, 55],
-        [11, 52, 91, 17, 71],
-    ]
+//     ],
+//     [
+//         [51, 99, 72, 65, 80],
+//         [4, 47, 67, 46, 39],
+//         [32, 58, 31, 98, 52],
+//         [12, 27, 25, 13, 55],
+//         [11, 52, 91, 17, 71],
+//     ]
 
-]
-let sum = 0
-for (let ele of matrix) {
-    for (let num of ele) {
-        for (let i of num) {
-            // console.log(i)
-            sum += i
+// ]
+// let sum = 0
+// for (let ele of matrix) {
+//     for (let num of ele) {
+//         for (let i of num) {
+//             // console.log(i)
+//             sum += i
 
-        }
+//         }
+//     }
+// }
+
+// console.log(sum)
+
+
+function createArr() {
+    const arr = [];
+    for (let i = 0; i < 5; i++) {
+        let num = Math.floor(Math.random() * 20) + 1;
+        arr.push(num)
+
     }
+    return arr
 }
 
-console.log(sum)
+
+
+
+
+
+
+
+
+let outerArr = []
+
+for (let i = 0; i < 5; i++) {
+    // console.log(createArr())
+    outerArr.push(createArr())
+
+}
+
+console.log(outerArr)
+
+
+
+
+// console.log(createArr())
