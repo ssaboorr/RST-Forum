@@ -140,4 +140,89 @@ let newArr = employees1.map((obj) => {
 })
 
 
-console.log(newArr)
+// console.log(newArr)
+
+
+const string = "Hello World"
+const stringArr = string.split("");
+
+
+let asciiArr = stringArr.map(aplh => aplh.charCodeAt(0))
+    // console.log(stringArr, asciiArr)
+
+
+
+let randomArray = [1, 3, 4, 5, 6, 8, 2, 4]
+
+
+let firstEven = randomArray.find(num => num % 2 == 0)
+    // 
+
+const team = [
+    { name: "John", age: 15 },
+    { name: "James", age: 17 },
+    { name: "Jack", age: 16 },
+    { name: "Jim", age: 22 },
+];
+
+let adult = team.find(obj => obj.age >= 18)
+    // console.log(adult)
+
+const prices = [1800, 2000, null, 3000, 5000,
+    'Thousand', 500, 8000
+];
+
+
+let filterPrices = prices.filter(item => {
+    if (typeof(item) === 'number') {
+        return item
+    }
+})
+
+// console.log(filterPrices)
+
+const ageArray = [12, 34, 15, 16, 18]
+
+
+let check = ageArray.every(age => age >= 20)
+
+// console.log(check)
+
+
+// Sorting an array of strings
+
+let names = ["Abhijeet", "Jim", "Farhan", "Danny",
+    "Brad"
+];
+
+
+// console.log(names.sort())
+
+let priceList = [1000, 50, 2, 7, 14];
+
+// console.log(priceList.sort())
+// Number is converted to string and sorted
+
+//  with compare funtion
+
+const prices2 = [500.4, 211, 23, 5, 4, 22.2, -23.2, 9233]
+
+// ascending order
+
+const sortAsc = prices2.sort((a, b) => a - b)
+    // console.log(sortAsc)
+
+
+// Descending order
+
+const sortDesc = prices2.sort((a, b) => a + b)
+
+// console.log(sortDesc)
+
+// Array reduce
+
+
+const arr = [1, 2, 3, 4, 5, 6]
+
+let sum = arr.reduce((accumulator, current) => accumulator + current);
+console.log(sum)
