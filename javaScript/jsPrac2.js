@@ -73,21 +73,21 @@
 // ----------------Array call back Methods-------------------------------
 
 
-// const students = ['john', 'jack', 'Joe', 'Jane']
+const students = ['john', 'jack', 'Joe', 'Jane']
 
 
-// students.forEach(printName)
+students.forEach(printName)
 
 
-// function printName(name) {
-//     console.log(name.toUpperCase())
-// }
+function printName(name) {
+    console.log(name.toUpperCase())
+}
 
-// students.forEach(function(name) {
-//     console.log(name)
-// })
+students.forEach(function(name) {
+    console.log(name)
+})
 
-// students.forEach(name => console.log(name))
+students.forEach(name => console.log(name))
 
 
 // const movies = [{

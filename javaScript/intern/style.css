@@ -1,0 +1,30 @@
+.hero {
+    border: 1px solid black;
+    border-radius: 3px;
+    margin: 2rem;
+    padding: 2rem;
+    text-align: center;
+}
+
+.container {
+    margin: 2rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 50%;
+    margin: 2rem;
+    padding: 2rem;
+    border: 1px solid black;
+    text-align: center;
+}
+
+.score {
+    margin: 2rem;
+    padding: 2rem;
+    text-align: center;
+}

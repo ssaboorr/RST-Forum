@@ -1,0 +1,20 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: auto;
+}
+
+.container {
+    border: 1px solid black;
+    text-align: center;
+    margin: 1rem;
+    padding: 2rem;
+}
+
+.game-body {
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
