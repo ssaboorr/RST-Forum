@@ -3,6 +3,15 @@
     font-size: auto;
 }
 
+.hero {
+    padding: 0.5rem;
+    margin: 2rem;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 2rem;
+}
+
 .root {
     border: 1px solid black;
     width: auto;
@@ -14,6 +23,9 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    box-sizing: border-box;
+    box-shadow: 2px 2px;
+    background-color: rgb(247, 247, 205);
 }
 
 .card {
@@ -45,4 +57,13 @@
     gap: 1rem;
 }
 
-.buttons button {}
+.buttons button {
+    background-color: rgb(250, 250, 69);
+    border: 1px solid black;
+    width: 5rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    box-sizing: border-box;
+    box-shadow: 2px 2px;
+}

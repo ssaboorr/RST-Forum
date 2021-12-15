@@ -82,8 +82,8 @@ for (let i = offset; i <= limit; i++) {
         .catch(err => console.log(err))
 }
 
-console.log(offset)
-console.log(limit)
+// console.log(offset)
+// console.log(limit)
 
 
 
@@ -92,44 +92,19 @@ let next = document.querySelector('.next')
 
 prev.disabled = "true"
 
-// async function nextData() {
-//     for (let i = offset; i <= limit; i++) {
 
-//         const pokemons = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
-
-//         pokemons.then((res) => console.log(res.data))
-
-
-//     }
-// }
 
 async function getData(offset, limit) {
 
-
-
     for (let i = offset; i <= limit; i++) {
-
         const pokemons = axios.get(`https://pokeapi.co/api/v2/pokemon/${i}`);
-
         pokemons.then((data) => {
-
             const pokemons = data.data
                 // console.log(pokemons.name)
             addData(pokemons.name, pokemons.abilities[0].ability.name, pokemons.base_experience, pokemons.height, pokemons.moves[0].move.name, pokemons.sprites.other.home.front_default, pokemons.id)
-
-
         })
-
-
     }
 }
-// const pokemons = axios.get('https://pokeapi.co/api/v2/pokemon');
-// pokemons.then((res) => console.log(res.data));
-
-//     const req1 = await axios.get('https://pokeapi.co/api/v2/poemon');
-//     const req2 = await axios.get(req1.data.results[0].url);
-//     console.log(req2.data);
-// }
 
 
 next.addEventListener('click', (e) => {
