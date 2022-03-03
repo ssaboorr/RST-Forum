@@ -1,0 +1,488 @@
+Generate some boilerplate for a basic React application.
+Go into your workspace/projects directory using the terminal.
+cd ~/Documents/FullStack/Workspace
+mkdir rststore
+npx create-react-app@latest frontend –use-npm
+code .
+cd frontend
+npm start
+Open public/index.html and clean up the file. Remove all the comments and change the title and meta content.
+Delete all the files in the src folder. Create and add basic boilerplate code to App.js and index.js.
+2. Chakra UI Installation and Setup
+
+npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+npm install react-icons –save
+Edit index.js file. Import ChakraProvider component and wrap the App component with it.
+3. Create Header and Footer components
+
+Create a folder called src/components in the src folder and add all components in that.
+4. Create HomeScreen product listings
+
+Create the HomeScreen component (all display/screen components will go in the /screens folder), along with the product and ratings components.
+5. Install and Implement React Router
+
+npm install react-router-dom
+Complete all the React Router setup on the App page.
+Modify Product cards, Header links etc. Use React Routers Link component instead.
+6. Design and build the ProductScreen component.
+
+Setting up the backend
+Close the React server.
+Create a folder named backend outside the frontend folder in the root of our project.
+npm init in the root. (not inside the backend or frontend folders, but outside in the root directory)
+During npm init setup the main will be server.js
+npm install express (in the root folder)
+Create a file backend/server.js in the backend folder and a folder data and copy products.js to this folder.
+Create some routes to serve the data from the backend
+Create a script for start in package.json
+Create 2 basic routes for ‘/’ and ‘/api/products’
+Convert products.js export statement to commonjs format.
+Create another route to fetch single product by id.
+Fetching data from our backend using React
+Inside the frontend folder, run npm install axios
+Modify the HomeScreen component to fetch and store data in the component.
+To fix the issue of our backend address for now, we’ll add a proxy to the frontend’s package.json. Add this “proxy”: “http://127.0.0.1:5000”, to frontend/package.json
+Make sure both frontend and backend are running in two terminals and test it out.
+Modify the ProductScreen component to also make a request to our backend to fetch data.
+Delete the projects.js file from our frontend’s src folder as we no longer need it.
+9. More backend setup
+
+In the root directory: run
+npm install -D nodemon concurrently. ‘-D’ is a dev dependency, meaning we only need these modules during development.
+These above packages will help us auto restart our server when we change our code, so we don’t have to do it manually.
+Modify scripts in package.json (root folder) to add some scripts to use our npm command directly to work them.
+10. Setup environment variables
+
+npm install dotenv
+Do the dotenv setup in server.js file and create a .env file in the root folder.
+11. Convert imports to ES Modules
+
+Add “type”: “module” to package.json file. Change all import and export statements to ES module style.
+Note: You will have to add .js extension while using ES modules in the backend.
+12. Install and setup MongoDB
+
+After installation, setup MongoDB Compass
+Use this as the connection string: mongodb://localhost:27017/rststore
+Add the following in the .env
+MONGO_URI = mongodb://localhost:27017/rststore
+13. Connect to the database
+
+Install mongoose: npm install mongoose (in the root folder)
+Create a folder named config in the backend folder and create a file named backend/config/db.js inside it.
+Do all the mongoDB connection setup
+Import db.js into server.js and run the connectDB function.
+Start the server and check if any error.
+14. Improve console log messages.
+
+Run this command in the root folder: npm install colors
+Add stylings to server and db console messages.
+15. Create database models for data
+
+Create a models folder inside the backend folder.
+Create all our data model schemas.
+16. Prepare sample data for the backend data seeding
+
+Delete all the _id key-values from the products.js as MongoDB
+will automatically create it for us.
+Create data/users.js file and fill it with a few user objects.
+npm install bcryptjs – for password hashing
+Use bcryptjs for the password fields to encrypt the password. (temporary)
+17. Create database seeder for quick sample data generation (optional)
+
+Create backend/seeder.js file inside the backend folder.
+Add seeding logic and create import and destroy scripts.
+18. Fetching products from the database
+
+Create a folder named backend/routes in the backend folder.
+Create a file named backend/routes/productRoutes.js
+npm install express-async-handler – we will wrap our callbacks with this function so that we can do error handler in a better way.
+Move the products and single product fetch routes to this file and add all the logic for now.
+Test the routes in Postman
+19. Do Postman setup to work with our API (optional)Custom error handling. Run the following in the root folder.
+
+20. Custom error handling. Run the following in the root folder.
+
+npm install express-async-handler
+Create a folder named backend/middleware in the backend folder
+Create an errorMiddleware.js and add logic to handle errors.
+21. Introduction to Redux
+
+The Redux Pattern
+Download the Redux DevTools brower extension.
+Go to the frontend folder. cd frontend
+npm install redux react-redux redux-thunk redux-devtools-extension
+In the src folder, create a file named store.js
+Import Provider and store into the index.js and do all the setup.
+22. Create our first reducer
+
+In frontend/src create a folder called reducers – (frontend/src/reducers).
+Create a file (our reducer) named productReducer.js inside the reducers folder and add all the reducer logic.
+Next, import productListReducer to store.js and add it to the combineReducers({}) function’s argument object as a new key/value.
+Create a folder called constants in the frontend/src folder and inside it create the productConstants.js file to store all our action names.
+Create a folder called actions in the frontend/src folder and inside it create the productActions.js file to store all our action functions. We will dispatch actions to our reducer.
+All these steps, we do for each resource of our app. So, whether it’s products, or users or some other model/feature, this is the format/pattern we will follow for Redux. We create the constant, the reducer the action and then we fire it off in the component.
+Next, we now want to fire this action off in our HomeScreen components where we need this products data.
+
+Getting Redux State in the Home Screen
+Clean up the file. Remove axios import, the [products, setProducts] state variables and remove everything from inside useEffect. We don’t need these anymore.
+Import useDispatch and useSelector from ‘react-redux’. Also import listProducts from ‘../actions/productActions’.
+The first hook will be used to dispatch/call an action, and the other is use to select parts of the state. Here we will need the productList part of the state.
+Create the dispatch object using the useDispatch hook and call it in useEffect to fire the listProducts action.
+To select products from our state, we need to use the useSelector hook. This hook will take in an arrow function. This function gets state and then we can select which part of the state do we want.
+Add a conditional to display a loading message, error message or our product list.
+24. Create Message and Loader components.
+
+Use the Spinner and Alert components from ChakraUI to add these.
+25. Single product details screen Reducer and Action
+
+Again, we will follow the same pattern/steps as earlier.
+Start off by adding the required constants. Since this is for the single product screen, we will add the constants once again to the productConstants.js
+Create a new reducer named productDetailsReducer in productReducers.js.
+Whenever we create a new reducer, we have to add it to our store. So, import productDetailsReducer in the store.js file and add a new piece of state named productDetails.
+Next, step will be to create an action. Add a new action named listProductDetails to the actions file.
+Next, in the ProductScreen.js, get rid of axios and clean up useEffect. Import useDispatch, useSelector and the listProductDetails action that we just created.
+Create the dispatch object and dispatch the listProductDetails action in the useEffect hook. You will now be able to see the state in Redux Devtools.
+Use useSelector hook and select the productDetails piece of state. De-structure the correct values and use them in the JSX to display the product details, error and loading components.
+26. Cart and Quantity
+
+Add a quantity select box with it’s logic to only contain the number of items in stock.
+The add to cart button should redirect to the a cart page/screen with the product id and quantity as a query string.
+27. Cart Screen and Route
+
+Create screens/CartScreen.js file in the screens folder.
+Import this new CartScreen.js component in the App.js file and create a route for the Cart screen. <Route path=’/cart/:id?’ component={CartScreen} />
+The :id? question mark here means that this id is optional in the route/address. Because if we directly go to the cart page we will not have any id.
+28. Cart Functionality
+
+Create constants/cartConstants.js and add CART_ADD_ITEM and CART_REMOVE_ITEM constant varaibles to it.
+Create reducers/cartReducer.js and add the reducer logic.
+Import cartReducer.js in store.js and add the cartReducer function to the combineReducers argument object.
+Create actions/cartActions.js. Do the below steps for the building the cart actions.
+Import axios. We need axios to make a request to /api/products/:id to get the data/fields for that particular product.
+Import CART_ADD_ITEM from actions/cartActions.js.
+Then create the addToCart function which will get a (id, qty). We will get both these from the URL params.
+We will need to use thunk as we are making an async request. So we will return an async function from it. This async function will get (dispatch, getState). dispatch is used for dispatching as usual, but getState will allow us to get our entire state tree. So anything we want like productList, productDetails, cart, we can get it using getState.
+After dispatching, we also want to store this in localStorage.
+getState().cart.cartItems will give us back a JavaScript object and we can only store strings in the browser localStorage. Hence we have to stringify it. And when we want to take it out and read, we will have to parse it using JSON.parse
+So we saved it to localStorage but where do we get it to actually fill the state, whenever we reload. We do that in the store.js.
+We will first see if there is anything in cartItems in the localStorage. If it’s there, then we will add it to the initial state, so always loaded on the app’s first load. If nothing is present in the localStorage then we will just add an empty array.
+29. Completing CartScreen.js and creating ‘add to cart’ functionality
+
+Build the add to cart functionality.
+Finish the CartScreen.js component.
+Add functionality to the Remove Item from cart button. Follow the steps below:
+Add CART_REMOVE_ITEM to the cartReducer.js file.
+Create an action named removeFromCart in the cartActions.js file.
+Fire this action in the removeFromCartHandler function in the CartScreen component.
+30. Clean up the backend routes by extracting their logic into controllers
+
+In the backend folder, create a folder called controller and create a file called productController.js inside it.
+Extract all the logic to the productController.js from the routes file. The routes file should now only be for routing and all logic will go in to the controllers.
+In productRoutes.js instead of using the method router.use(), instead use router.route() and add the route inside and then chain the appropriate methods get, post, put, delete etc. to it. This way we can define different controller logic to the same route. We will see this in sometime.
+31. User Authentication Endpoints (Backend Routes)
+
+Create routes/userRoutes.js and controllers/userController.js.
+Start by working on an auth route. So here we want to authenticate a user by email and password. And then we want to send back some data, a token which we can save on the client (browser), so in the frontend (browser) we can use that token to access protected pages/routes (react frontend routes).
+Import the ../models/userModel.js as we will need it to create new users in the MongoDB database.
+Create authUser controller function. Inside it, first thing is to get data from the body. This data is on the request object and is something that will be sent here (to the backend) by a POST request and is usually sent via a form on the frontend pages. We can also mimic this sending data using Postman.
+Before getting the data, make a new folder in rststore Postman collection.. Add a folder called Users & Auth. Inside that create a new request. Name it POST /api/users/login with the url to {{URL}}/api/users/login and add an email & password object to Body of type JSON.
+Now this object that we add to the body tab in Postman, what will be sent in an object (key-value) on the request object. We extract that from request.body.
+But in order for parsing this JSON data that we get on the request object from the frontend/Postman, we need to add another middleware in server.js.
+Add the following line after const app = express part. app.use(express.json())
+Create the authUser controller function. Also import this into userRoutes.js and add a login route.
+Also import userRoutes in server.js and add the routes for users..
+app.use(‘/api/users’, userRoutes)
+Use the findOne() method on the User model to get the user’s object from the database.
+Password needs to be encrypted before checking as we are storing encrypted passwords in the database, so add a method on the User Model itself. Edit models/userModel.js and add a method on the userSchema – userSchema.methods.matchPassword.
+Use this new method in userController.js and finished the implementation.
+Don’t return the token for now. Just set it to null. Return all other details leaving the password as a json object and also add an else condition.
+Test this new endpoint in POSTMAN. (start only the server for now)
+32. Using Json Web Tokens (JWT)
+
+What are JWTs and how do they work?
+Installation: npm install jsonwebtoken
+Create a folder called backend/utils. Put all helpers and utility functions here. Inside it create a file named generateToken.js and create the token generation function. Also add the JWT_SECRET to the env as this is needed for the token generation.
+Import generateToken.js into userController.js and use the function in the response object’s token property (key).
+Test in Postman. Add this request to Postman.
+33. Creating custom Authentication Middleware to accessprotected routes.
+
+Add a new request in Postman. GET /api/users/profile with request URL {{URL}}/api/users/profile.
+Add getUserProfile controller method to userController.js and also export it. Also add the route for this in userRoutes.js.
+Create a new file named middleware/authMiddleware.js. This middleware will validate the token.
+Implement the protect middleware function. In our backend we will be getting the authorization tokens in the header object in requests (we will send it that way from React).
+Import protect into routes/userRoutes.js. We need to add our middleware function here to the /profile endpoint.
+Implement the complete of the protect middleware function.
+Once done, we can now use this middleware to any endpoint (route) that we want to be protected, that is only accessible using a valid JWT.
+Finish implementation of the getUserProfile controller function in userController.js
+Save the token in Postman, so we don’t have to keep copying and pasting tokens to the Headers. Add Tests to login request so that the token can be set in an environment variable. After that set profile request Auth Type to Bearer Token.
+34. User registration
+
+Add a new request to Postman: POST /api/users with url as {{URL}}/api/users. This will be a POST request. So a GET request to the same endpoint will give us a total list of users, while a POST request will create a new user.
+Add a new registerUser controller function to the userController.js file. After that, import this function to userRoutes.js and create a new register route.
+#### Password Encryption ####
+The password still isn’t encrypted as we sent it directly to the User.create() function. So to encrypt password while creating a new user and adding it to the database, create a new mongoose middleware.
+In mongoose, we can set certain things to happen on saves or finds etc. So when we execute the User.create function, before saving to database, we can run some code to encrypt the password and then save.
+Test the new endpoint in Postman.
+35. User Login Reducer and Action
+
+Add all constants for the login. Create the file constants/userConstants.js and add all the constants.
+Create the reducers/userReducer.js file and add the userLoginReducer function. Add all the necessary actions and logic.
+Import userLoginReducer to store.js and add it to the combineReducers function’s parameter object.
+Create the actions file in actions/userActions.js and add the action logic. This is pretty much the same as the earlier actions. Only difference here is that we have to add some headers to the axios request, and also store the user data to localStorage.
+Lastly, since we stored the user data in localStorage, we should load them in the initial state in store.js. Create a variable named userInfoFromStorage and set it to get it’s value from localStorage. In the initialState variable, add another key named userLogin and set it’s value to userInfo: userLogin: { userInfo: userInfoFromStorage }
+36. User Login Screen
+
+Create a new component called components/FormContainer.js which will just be a simple wrapper for our form elements. Just a box with some styling, which we will use to add all our forms in.
+Create a new screen in screens/LoginScreen.js and write the ui and logic.
+Import it in App.js and create a route for it.
+(styling changes overall if required)
+37. Implement all the Login – Redux functionality in the LoginScreen component.
+
+38. Header modification to show User and User Logout feature
+
+Modify Header.js. Import redux modules, for running the LOGOUT action and getting access to the state.
+import {useDispatch, useSelector} from ‘react-redux’
+Import Menu, MenuButton, MenuList, MenuItem from Chakra.
+Get the userInfo state using useSelector.
+Also import import { IoChevronDown } from ‘react-icons/io5’
+Create a logout action in userActions.js.
+Implement all the logic.
+39. User Register, Constants, Reducer, Action and Screen.
+
+Add new REGISTER constants to the userConstants.js
+Create userRegisterReducer in the userReducers.js
+Import this reducer in store.js and add it to combineReducers
+Create register action in userActions.js
+Create the RegisterScreen component and add it to the App.js router.
+40. Update User Profile endpoint in the backend
+
+Create a updateUserProfile controller method and export it.
+Import updateUserProfile in userRoutes.js and add a PUT request on the same /profile route. This route will also take the middleware protect as this is a protected endpoint.
+41. User Profile Screen and Getting User Details
+
+Add USER DETAILS constants to the userConstants.js file.
+Create userDetailsReducer in userReducer.js and import and add it to the Store.
+Create and add a getUserDetails action in userActions.js
+Create the ProfileScreen and add it to Router in App.js
+42. Add Update User Profile functionality
+
+Add new UPDATE PROFILE constants to the userConstants.js
+Create userUpdateProfileReducer in the userReducers.js
+Import this reducer in store.js and add it to combineReducers
+Create updateUserProfile action in userActions.js
+43. Shipping Screen and Save Address
+
+Create a new component/screen in screen/ShippingScreen.js and add it to the Router in App.js
+Complete the ShippingScreen component. Create all the local state required and build the shipping form.
+In the submitHandler we want to dispatch an action that will save the shipping address to the Redux store.
+Create a new constant named CART_SAVE_SHIPPING_ADDRESS in the constants/cartConstants.js file.
+Create a new action named saveShippingAddress in the actions/cartActions.js file.
+Create a new case CART_SAVE_SHIPPING_ADDRESS in the reducers/cartReducers.js file. Also in the cartReducer function’s initial state object, add another key named shippingAddress and set it to an empty object.
+Since we are going to store the shippingAddress to localStorage, we also should check if it’s already present in the user’s machine and load it if present. Add the code to the store.js file.
+Add all Redux related functionality to the ShippingScreen component and finish the implementation.
+44. Checkout Steps Component
+
+Create he component and then add it to the ShippingScreen component.
+45. PaymentScreen – where users can choose the payment method
+
+Create the PaymentScreen component in the screens folder.
+Add CART_SAVE_PAYMENT_METHOD to the cartConstants.js file.
+Create the savePaymentMethod action function in actions/cartActions.js file.
+Create a new case CART_SAVE_PAYMENT_METHOD in the reducers/cartReducer.js
+Import and add PaymentScreen to App.js router.
+46. Place Order Screen
+
+We will just create a basic screen/page for now. We will do all the real setup only once we have created a backend to actually accept an order.
+Create a new screen named PlaceOrderScreen.js in the screen folder.
+Complete the PlaceOrderScreen implementation for now. We will complete this fully when we are done with our order functionality in the backend.
+Also calculate and set cart.itemsPrice, cart.shippingPrice, cart.taxPrice, cart.totalPrice
+47. Backend: Order controller and endpoint (route)
+
+Create controllers/orderController.js.
+Create routes/orderRoutes.js. Import the orderController and connect it here to a endpoint.
+Lastly add the main endpoint (route) to server.js
+48. Create Order
+
+Create an constants/orderConstants.js file and add all the constants.
+Create a new reducer file in reducers/orderReducers.js and add a orderCreateReducer function in it. Import this in store.js and add it to combineReducers.
+Create a new actions file in actions/orderActions.js and add a createOrder action function.
+Import createOrder action into the PlaceOrderScreen component and complete the implementation.
+49. Get Order By ID (Backend Endpoint)
+
+Create the getORderById controller function in the orderController.js file.
+Add ‘/:id’ route to the orderRoute.js file and attached it to the getOrderbyID controller function.
+50. Create the order details reducer and action (frontend)
+
+Add new order details related constants in the orderConstants.js file.
+Create orderDetailsReducer to the orderReducer.js file and connect it in the store.js file.
+Create a new getOrderDetails function in the orderActions.js file.
+51. Create the Order Screen component
+
+Create the OrderScreen.js file in screens.
+Add this new screen to the App.js route.
+52. Backend endpoint for updating an order to paid
+
+Create a new updateOrderToPaid controller function in the backend/controllers/orderController.js file.
+Import updateOrderToPaid in the routes/orderRoutes.js and add a route for the endpoint ‘/:id/pay’ making it a PUT request.
+53. Order pay reducer and action
+
+Add new ORDER_PAY_ constants to the constants/orderConstants.js file in the frontend.
+Create a new reducer function orderPayReducer in the reducers/orderReducers.js. Import this in store.js and add it to the combineReducers function.
+Create a new action named payOrder in the actions/orderAction.js file.
+54. Adding PayPal Payments
+
+Signup for a free Personal or Business account on PayPal.
+After signup process completion, go to https://developer.paypal.com/developer/applications
+Go to Sandbox -> Accounts and create 2 Accounts, a personal which you will use to pay and a business to which you will be paying. This will be a sandbox/mock/test environment for working with the PayPal API. You can simply use the 2 default Sandbox Accounts provided by PayPal.
+Go to Dashboard -> My Apps & Credentials and make sure Sandbox mode is activated. Click on Create App and follow the process to create a new application. Give the app name ‘rststore’, app type ‘Merchant’ and select the business email (do not use the personal email here). Check everything carefully and then click Create App.
+After creation you will get your Sandbox API Credentials. We won’t add the Client ID in the frontend. We’ll add it to the backend and create a route to access it.
+Add the client ID in the .env file and create a route/endpoint in server.js
+In order to use PayPal, we need to add a script to our site. Visit https://developer.paypal.com/docs/checkout/reference/customize-sdk/ to see the details. We will need to add this script <script src=”https://www.paypal.com/sdk/js?client-id=YOUR_CLIENT_ID”></script> to the orderScreen.
+Edit the OrderScreen.js file and do all the PayPal implementations.
+We will use an npm package for adding the PayPal button to the screen. Install the package: npm i react-paypal-button-v2. Make sure you install this in the frontend folder.
+Add all the paypal functionality and finish the page’s implementation.
+55. Show Orders on Profile Page
+
+In the backend, create a new controller function, controllers/getMyOrders.js
+Import this controller in the routes/orderRoutes.js file and connect the route/endpoint.
+(Optional) Test the endpoint in Postman.
+Add new ORDER_MY_LIST constants to the constants/orderConstants.js file.
+Create a reducer named orderMyListReducer in the reducers folder.
+Import and add this reducer to the combineReducer function’s argument object in store.js
+Create a new action named listMyOrders and add it to the orderAction.js.
+Modify the ProfileScreen.js file and implement showing orders in there.
+56. Clear state on logout
+
+Create ORDER_MY_LIST_RESET in orderConstants.js and add that as a case to the orderMyListReducer function in orderReducer.js
+Create USER_DETAILS_RESET in userConstants.js and add that as a case to the userDetailsReducer function in userReducer.js
+Import USER_DETAILS_RESET and ORDER_MY_LIST_RESET and dispatch it in the logout action function.
+57. Admin Middleware and Getting Users Endpoint
+
+We will create routes that are admin protected and will only be accessible by admin users.
+For testing purposed, add this as a request to Postman. {{URL}}/api/users. Make a new request for this URL and name this request GET /api/users.
+In the backend, create a new controller named getUsers in controllers/userController.js
+Import this controller in routes/userRoutes.js and add it as a get request.
+Create a new admin auth middleware in middlewares/authMiddlewares.js. This will check if a user is an admin. Import this userRoutes.js and protect the required route.
+Test route in Postman.
+58. Admin User List – Frontend
+
+Add new USER_LIST constants to userConstants.js
+Import these constants and create a new reducer userListReducer in the userReducer.js file. Add it to store.js as well.
+Create new action called listUsers in userActions.js
+Create a component called UserListScreen.js in the screens folder. This screen will show admins the complete list of users.
+Modify the Header.js to show the admin/manage menu and it’s links.
+59. Admin Screen page security
+
+Edit the UserListScreen.js. Bring in the userLogin state and read the current user login info. If the user is not an admin, then push the user to the ‘/login’ page.
+Go to the userConstants.js file and add USER_LIST_RESET to it.
+Import USER_LIST_RESET in the userReducers.js file and add the new case to the userListReducer function.
+Import USER_LIST_RESET in the userActions.js file and dispatch it in the LOGOUT action. This will clear the users list from redux when an admin logs out.
+60. Delete User Functionality (for Admins)
+
+Create a new controller function named deleteUser in backend/controllers/userController.js.
+Import this controller in routes/userRoutes.js and create a new /:id route and add the controller which should be protected by the protect and admin middlewares, to a new route of ‘/:id’.
+Test this new backend route in Postman. After this, implement these features in the frontend.
+Add new USER_DELETE_ constants in the frontend/constants/userConstants.js.
+Add a new reducer function named userDeleteReducer in the reducers/userReducers.js file. Add this reducer to store.js.
+Add a new action function named deleteUsers to the actions/userActions.js file. Dispatch this action in the UsersListScreen component.
+61. Backend endpoints for getting and updating user by it’s ID
+
+Add getUserById and updateUser controller methods to the userController.js file. Import these controllers in the userRoutes.js and add the routes.
+Test these in Postman.
+62. User Edit screen and User Details screen components
+
+Update the edit link in UserListScreen.js
+Create a new file named UserEditScreen and implement it.
+63. Update user functionality
+
+Add new USER_UPDATE_ constants in the userConstants.js file.
+Create userUpdateReducer reducer function in the userReducers.js and attach it to the store.js
+Create a new action named updateUser in the userActions.js file. Dispatch this action correctly in the screens/UserEditScreen.js
+64. Admin – Product List
+
+In the screens folder, create ProductListScreen.js and implement the component.
+Import and create a route for it in App.js.
+65. Admin – Delete Products
+
+Create a new deleteProduct controller function in the backend/productController.js file.
+Import this new controller in routes/productRoutes.js and create an endpoint for it. Protect this route with the product and admin middlewares.
+(optional) Test the route in Postman.
+Now implement the feature in the frontend. Add new PRODUCT_DELETE_ constants in the frontend/constants/productConstants.js file.
+Import these constants in the reducers/productReducers.js file and create a new productDeleteReducer function. Import and add it to the store.js
+Create a new deleteProduct action function in actions/productActions.js
+Import the action back in ProductListScreen.js.
+(for testing only) You can run npm run data:import. Remember to logout and shut down the server before doing this. Also this will reset all the data in the database, including the users and their orders.
+66. Create and Update Product Backend Endpoints
+
+The Create Product button will immediately add a product with some dummy data and take us to an edit page where we can edit that data.
+In the productControllers.js file, add two new controller functions, createProduct and updateProduct.
+Import and add those controller functions in routes/productRoutes.js
+(optional) Test it in Postman
+67. Admin – Create Product Screen
+
+Add new PRODUCT_CREATE_ constants in productConstants.js
+Add new productCreateReducer function to productReducers.js and add it to store.js
+Add new createProduct action function in productActions.js
+Complete the ProductListScreen and implement all the functionality.
+68. Product Edit Screen
+
+Create a new file named ProductEditScreen.js in the screen folder. Implement the entire component.
+69. Admin – Update Product Functionality
+
+Add new PRODUCT_UPDATE_ constants to the productConstants.js file.
+Add new productUpdateReducer reducer function to the productReducers.js and add it to store.js
+Add new updateProduct action function to the productActions.js
+Dispatch the action in ProductEditScreen and do all required modifications.
+70. Image Upload Configuration and Endpoint
+
+Install multer in the root folder: npm install multer
+In the root folder, we will create a folder called uploads. We will store all our uploads in this folder
+Create uploadRoutes.js file in the routes folder. Complete the upload implementation.
+In the server.js file create the main route for uploads and make /uploads folder static so we can use it to upload photos.
+71. Upload images from the frontend
+
+Edit the ProductEditScreen component and implement the upload button.
+72. Admin – Order List
+
+In controllers/orderController.js, add a new controller function named getOrders.
+Import getOrders in the routes/orderRoutes.js file and add the route and controller.
+Add new ORDER_LIST_ constants to the orderConstants.js file.
+Create new orderListReducer reducer function in the reducers/orderReducers.js file. Add it to the store.js
+Create new listOrders action function in the actions/orderActions.js file.
+Create a new OrderListScreen.js to show the orders list to the admin. Add this new component to the App.js and it’s routes.
+73. Admin – Mark order as delivered
+
+In the backend, add a new controller function named updateOrderToDelivered in the controllers/orderController.js
+Import the controller function in routes/orderRoutes.js and create a route for it.
+Add new ORDER_DELIVER_ constants to orderConstants.js
+Create new orderDeliverReducer reducer function in reducers/orderReducer.js. Add it to store.js
+Create a new deliverOrder action function in orderActions.js
+Dispatch this action in OrderScreen component and comlete the implementation.
+74. Create Review Endpoint
+
+Associate User to reviewSchema. Edit models/productModel.js and add a user object id ref.
+Add a new createProductReview controller function in controllers/productControllers.js and add it to routes/productRoutes.js and create a route for it.
+75. Create Review Endpoint
+
+Associate User to reviewSchema. Edit models/productModel.js and add a user object id ref.
+Add a new createProductReview controller function in controllers/productControllers.js and add it to routes/productRoutes.js and create a route for it.
+76. Adding product reviews on the frontend
+
+Add new PRODUCT_CREATE_REVIEW_ constants to productConstants.js
+Create productReviewCreateReducer reducer function in productReducers.js and add it to store.js
+Create a new createProductReview action function in productActions.js file.
+Implement the functionality in the ProductScreen.js
+DEPLOYMENT
+
+Add frontend/build in the gitignore
+Then add heroku post build script
+Signup for heroku
+Install the CLI. https://devcenter.heroku.com/articles/heroku-cli
+In the root folder run: heroku login
+heroku create rststoreapp
+add a procfile with the command in the root folder
+add post build script in package json
+git add .
+git commit -m “Ready for deploy”
+heroku git:remote -a rststoreapp
+git push heroku main
